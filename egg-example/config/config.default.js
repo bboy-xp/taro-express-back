@@ -9,6 +9,11 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
+  exports.mongoose = {
+    url: 'mongodb://127.0.0.1/ExpressData',
+    options: {}
+  };
+
   config.security = {
     csrf: {
       enable: false,
