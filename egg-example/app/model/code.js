@@ -5,6 +5,7 @@ module.exports = app => {
     name: { type: String },
     phone: { type: Number },
     code: { type: String },
+    isQuestion: { type: Boolean }
 
   }, {
       timestamps: true,
