@@ -1,10 +1,20 @@
 'use strict';
 
 const Controller = require('egg').Controller;
+const axios = require('axios');
 
 class HomeController extends Controller {
   async index() {
     this.ctx.body = 'hi, xp';
+  }
+  async getOpenid() {
+    const ctx = this.ctx;
+    const data = ctx.request.body;
+    const code = data.code;
+    //发送授权请求获取openid
+    const getOpenidRes = await axios.get(`https://api.weixin.qq.com/sns/jscode2session?appid=wxa65b857e40095d0e&secret=40030bc4b3d3af6bafb81ff33c459a50&js_code=${code}&grant_type=authorization_code`);
+    const openid = getOpenidRes.data.openid;
+    ctx.body = openid;
   }
   postCode() {
     const ctx = this.ctx;
