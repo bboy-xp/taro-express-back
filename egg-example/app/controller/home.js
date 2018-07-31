@@ -18,7 +18,7 @@ class HomeController extends Controller {
   }
   postCode() {
     const ctx = this.ctx;
-    console.log(ctx.request.body);
+    // console.log(ctx.request.body);
     const data = ctx.request.body;
     const openid = data.openid;
     let phone;
@@ -74,7 +74,7 @@ class HomeController extends Controller {
   }
   postQuestionCode() {
     const ctx = this.ctx;
-    console.log(ctx.request.body);
+    // console.log(ctx.request.body);
     const data = ctx.request.body;
     const openid = data.openid;
     let phone;
@@ -129,13 +129,13 @@ class HomeController extends Controller {
   }
   async postSearchCode() {
     const ctx = this.ctx;
-    console.log(ctx.request.body);
+    // console.log(ctx.request.body);
     const data = ctx.request.body;
     const code = data.code;
     const Code = ctx.model.Code;
     //find的结果按照时间排序
     const searchCode = await Code.find({ code: code }).sort({ '_id': -1 });
-    console.log(searchCode);
+    // console.log(searchCode);
 
     ctx.body = searchCode;
   }
